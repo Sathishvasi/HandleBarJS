@@ -1,0 +1,65 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="handlebars-v4.0.11.js"></script>
+<script type="text/javascript" src="script.js"></script>
+
+<script id="address-template" type="text/x-handlebars-template">
+
+  <br>
+<h3>First example<code>&lt;Data Binding&gt;</code></h3>
+  <p>Hi i'm {{name}}</p>
+  <p>Frontend developer in {{company}}</p>
+  <p>{{location}}</p>
+
+  <br><br>
+<h3>Second Example<code>&lt;IF condition & For each&gt;</code></h3>
+  {{#each item}}
+    {{#if available}}
+
+      Mr. {{name}} 
+        {{#gt age 18}}
+          <b>You are eligible to vote</b>
+          {{else}}
+           Not eligible
+        {{/gt}}
+
+    {{else}}
+
+        {{name}} is not available in this list
+
+    {{/if}}<br/>
+  {{/each}}
+  
+  <br><br>
+<h3>Third Example<code>&lt;Switch case&gt;</code></h3>
+Enter Number(1 to 7):<input type="text" id="input-val"/>
+<button onclick="startHandleBar();">Check Day</button>
+<br><b>
+{{#switch state}}
+    {{#case "1"}}Sunday{{/case}}
+    {{#case "2"}}Monday{{/case}}
+    {{#case "3"}}Tuesday{{/case}}
+    {{#case "4"}}Wednesday{{/case}}
+    {{#case "5"}}Thursday{{/case}}
+    {{#case "6"}}Friday{{/case}}
+    {{#case "7"}}Saturday{{/case}}
+    {{#default}}No Days Selected{{/default}}
+{{/switch}}
+</b>
+</script>
+<script>
+function startHandleBar(){
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "script.js"; 
+    document.getElementsByTagName("head")[0].appendChild(script);
+    return false;
+}
+</script>
+<div class="container text-center">
+  <h1>HandleBarJS Demo</h1>
+  <div class="content-placeholder"></div>
+</div>
+
